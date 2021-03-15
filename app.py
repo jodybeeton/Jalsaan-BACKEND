@@ -36,11 +36,11 @@ def add_new_user():
     if request.method == "POST":
         msg= None
         try:
-            #post_data = request.get_json()
-            name = request.form['name']
-            surname = request.form['surname']
-            email = request.form['email']
-            password = request.form['pin']
+            post_data = request.get_json()
+            name = post_data['name']
+            surname = post_data['surname']
+            email = post_data['email']
+            password = post_data['pin']
 
             with sqlite3.connect('users.db') as conn:
                 cur = conn.cursor()
