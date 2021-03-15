@@ -65,7 +65,9 @@ def list():
                 rows = cur.fetchall()
     except Exception as e:
         print("Something went wrong" + str(e))
-    return jsonify(rows)
+    finally:
+        conn.close()
+        return jsonify(rows)
 
 @app.route('/add-products', methods=['POST'])
 def add_prod():
