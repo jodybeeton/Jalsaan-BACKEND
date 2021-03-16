@@ -69,7 +69,7 @@ def list():
         conn.close()
         return jsonify(rows)
 
-@app.route('/add-products', methods=['POST'])
+@app.route('/add-products/', methods=['POST'])
 def add_prod():
 
    with sqlite3.connect('users.db') as conn:
